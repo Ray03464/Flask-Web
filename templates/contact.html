@@ -1,0 +1,278 @@
+{% extends 'master.html' %}
+{% block content %}
+    <link rel="stylesheet" href="/static/style.css">
+    <body>
+    <div class="contact-container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Get in Touch</h1>
+            <p>We'd love to hear from you. Send us a message and we'll respond as soon as possible</p>
+        </div>
+
+        <!-- Success/Error Message -->
+        <div id="messageAlert" style="display: none;" class="alert alert-dismissible fade show" role="alert">
+            <span id="messageText"></span>
+            <button type="button" class="btn-close" onclick="document.getElementById('messageAlert').style.display='none'"></button>
+        </div>
+
+        <!-- Contact Info Cards -->
+        <div class="row mb-5">
+            <div class="col-md-4 mb-4">
+                <div class="contact-card info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="info-title">Visit Us</h3>
+                    <div class="info-text">
+                        123 Perfume Avenue<br>
+                        Fashion District<br>
+                        New York, NY 10001<br>
+                        United States
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="contact-card info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3 class="info-title">Call Us</h3>
+                    <div class="info-text">
+                        Customer Service:<br>
+                        <a href="tel:+1234567890">+1 (234) 567-890</a><br>
+                        <br>
+                        Mon - Fri: 9:00 AM - 6:00 PM<br>
+                        Sat: 10:00 AM - 4:00 PM
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="contact-card info-card">
+                    <div class="info-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3 class="info-title">Email Us</h3>
+                    <div class="info-text">
+                        General Inquiries:<br>
+                        <a href="mailto:info@enchantedelegant.com">info@enchantedelegant.com</a><br>
+                        <br>
+                        Customer Support:<br>
+                        <a href="mailto:support@enchantedelegant.com">support@enchantedelegant.com</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="form-section">
+            <div class="contact-card">
+                <h2 class="section-title">Send Us a Message</h2>
+                <form id="contactForm" action="/send_contact" method="POST">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">First Name <span class="required-star">*</span></label>
+                            <input type="text" class="form-control" name="first_name" placeholder="Enter your first name" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Last Name <span class="required-star">*</span></label>
+                            <input type="text" class="form-control" name="last_name" placeholder="Enter your last name" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Email Address <span class="required-star">*</span></label>
+                            <input type="email" class="form-control" name="email" placeholder="your.email@example.com" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" name="phone" placeholder="+1 (555) 000-0000">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Subject <span class="required-star">*</span></label>
+                        <select class="form-select" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="order">Order Status</option>
+                            <option value="product">Product Information</option>
+                            <option value="shipping">Shipping & Delivery</option>
+                            <option value="returns">Returns & Exchanges</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="partnership">Business Partnership</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">Message <span class="required-star">*</span></label>
+                        <textarea class="form-control" name="message" rows="6" placeholder="Tell us how we can help you..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane me-2"></i>Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Quick FAQ Links -->
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="faq-section">
+                    <h3 class="faq-title">Quick Help</h3>
+                    <div class="faq-item">
+                        <a href="#" class="faq-link">
+                            <span>Track Your Order</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                    <div class="faq-item">
+                        <a href="#" class="faq-link">
+                            <span>Shipping Information</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                    <div class="faq-item">
+                        <a href="#" class="faq-link">
+                            <span>Return Policy</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                    <div class="faq-item">
+                        <a href="#" class="faq-link">
+                            <span>Payment Methods</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="faq-section">
+                    <h3 class="faq-title">Need Help?</h3>
+                    <div class="faq-item">
+                        <a href="#" class="faq-link">
+                            <span>FAQ - Frequently Asked Questions</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                    <div class="faq-item">
+                        <a href="#" class="faq-link">
+                            <span>Size Guide</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                    <div class="faq-item">
+                        <a href="#" class="faq-link">
+                            <span>Fragrance Finder</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                    <div class="faq-item">
+                        <a href="#" class="faq-link">
+                            <span>Gift Cards</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map Section -->
+        <div class="map-section">
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <div>
+                        <i class="fas fa-map-marked-alt fa-3x mb-3" style="color: #ec4899;"></i>
+                        <div>📍 123 Perfume Avenue, Fashion District, NY 10001</div>
+                        <small class="d-block mt-2">(Replace with actual Google Maps embed)</small>
+                    </div>
+                </div>
+                <!-- To add real map, use Google Maps embed:
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=YOUR_EMBED_CODE"
+                    width="100%"
+                    height="400"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+                -->
+            </div>
+        </div>
+
+        <!-- Social Media Section -->
+        <div class="social-section">
+            <h2 class="social-title">Connect With Us</h2>
+            <p class="social-subtitle">Follow us on social media for exclusive offers and updates</p>
+            <div class="social-icons">
+                <a href="#" class="social-btn facebook" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-btn instagram" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-btn twitter" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-btn pinterest" title="Pinterest">
+                    <i class="fab fa-pinterest-p"></i>
+                </a>
+                <a href="#" class="social-btn tiktok" title="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+                <a href="#" class="social-btn youtube" title="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Check for error message in URL
+        window.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const error = urlParams.get('error');
+
+            if (error === 'true') {
+                showMessage('❌ There was an error sending your message. Please try again or contact us directly.', 'danger');
+                // Clean URL
+                window.history.replaceState({}, document.title, '/contact');
+            }
+        });
+
+        function showMessage(message, type) {
+            const alertDiv = document.getElementById('messageAlert');
+            const messageText = document.getElementById('messageText');
+
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+            messageText.textContent = message;
+            alertDiv.style.display = 'block';
+
+            // Scroll to message
+            alertDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                alertDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // Form validation and submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            const submitBtn = this.querySelector('.btn-submit');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+        });
+
+        // Smooth hover effects for FAQ links
+        document.querySelectorAll('.faq-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Add your navigation logic here
+            });
+        });
+    </script>
+</body>
+
+{% endblock %}

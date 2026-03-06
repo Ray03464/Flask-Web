@@ -1,0 +1,53 @@
+{% extends 'master.html' %}
+{% block content %}
+    {% include 'slider.html' %}
+    <link rel="stylesheet" href="/static/main.css">
+    <body>
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <!-- Cute Categories Sidebar -->
+            <div class="col-lg-3 col-md-4 mb-4">
+                <div class="cute-sidebar">
+                    <h3 class="sidebar-title">Categories</h3>
+                    <div class="d-flex flex-column">
+                        <a href="#" class="category-item">🌸 Floral</a>
+                        <a href="#" class="category-item">🌲 Woody</a>
+                        <a href="#" class="category-item">🌊 Fresh</a>
+                        <a href="#" class="category-item">🌙 Oriental</a>
+                        <a href="#" class="category-item">✨ Unisex</a>
+                    </div>
+                </div>
+            </div>
+                       <!-- Featured Products -->
+            <div class="col-lg-9 col-md-8">
+                <h2 class="section-title">Featured Perfumes</h2>
+                <div class="row">
+                    <!-- Product Card 1 -->
+                    {% for item in products %}
+                            <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="product-card">
+                            <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Rose Essence" class="product-img">
+                            <div class="product-info">
+                                <h4 class="product-title">Rose Essence</h4>
+                                <p class="product-price">$89.99</p>
+                                <div class="button-group">
+                                    <button class="add-to-cart-btn">Add to Cart</button>
+                                    <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
+
+
+
+
+

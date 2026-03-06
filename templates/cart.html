@@ -1,0 +1,300 @@
+{% extends 'master.html' %}
+{% block content %}
+    <title>Shopping Cart - Enchanted Elegance</title>
+    <link rel="stylesheet" href="/static/style.css">
+<body>
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="container">
+            <div class="row">
+                <!-- Cart Items -->
+                <div class="col-lg-8">
+                    <!-- Promo Code Section -->
+                    <div class="promo-section">
+                        <h4 class="promo-title">Have a Promo Code?</h4>
+                        <div class="d-flex">
+                            <input type="text" class="form-control promo-input" placeholder="Enter promo code">
+                            <button class="promo-btn">Apply</button>
+                        </div>
+                    </div>
+
+                    <!-- Cart Item 1 -->
+                    <div class="cart-item">
+                        <div class="row align-items-center">
+                            <div class="col-md-2">
+                                <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Rose Essence" class="product-image">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="product-info">
+                                    <h5>Rose Essence</h5>
+                                    <p class="text-muted mb-2">50ml Eau de Parfum</p>
+                                    <div class="product-price">$89.99</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="quantity-controls">
+                                    <button class="quantity-btn" onclick="decreaseQuantity(1)">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <input type="number" id="qty-1" value="1" class="quantity-input" min="1" max="10">
+                                    <button class="quantity-btn" onclick="increaseQuantity(1)">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="text-end">
+                                    <div class="product-price" id="total-1">$89.99</div>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <button class="remove-btn" onclick="removeItem(1)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cart Item 2 -->
+                    <div class="cart-item">
+                        <div class="row align-items-center">
+                            <div class="col-md-2">
+                                <img src="https://images.unsplash.com/photo-1594736797933-d0d6a3d17d8d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Vanilla Dreams" class="product-image">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="product-info">
+                                    <h5>Vanilla Dreams</h5>
+                                    <p class="text-muted mb-2">50ml Eau de Parfum</p>
+                                    <div class="product-price">$105.99</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="quantity-controls">
+                                    <button class="quantity-btn" onclick="decreaseQuantity(2)">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <input type="number" id="qty-2" value="2" class="quantity-input" min="1" max="10">
+                                    <button class="quantity-btn" onclick="increaseQuantity(2)">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="text-end">
+                                    <div class="product-price" id="total-2">$211.98</div>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <button class="remove-btn" onclick="removeItem(2)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cart Item 3 -->
+                    <div class="cart-item">
+                        <div class="row align-items-center">
+                            <div class="col-md-2">
+                                <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59d75?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="Ocean Breeze" class="product-image">
+                            </div>
+                            <div class="col-md-4">
+                                <div class="product-info">
+                                    <h5>Ocean Breeze</h5>
+                                    <p class="text-muted mb-2">50ml Eau de Parfum</p>
+                                    <div class="product-price">$95.99</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="quantity-controls">
+                                    <button class="quantity-btn" onclick="decreaseQuantity(3)">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                    <input type="number" id="qty-3" value="1" class="quantity-input" min="1" max="10">
+                                    <button class="quantity-btn" onclick="increaseQuantity(3)">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="text-end">
+                                    <div class="product-price" id="total-3">$95.99</div>
+                                </div>
+                            </div>
+                            <div class="col-md-1">
+                                <button class="remove-btn" onclick="removeItem(3)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cart Summary -->
+                <div class="col-lg-4">
+                    <div class="cart-summary">
+                        <h3 class="summary-title">Order Summary</h3>
+
+                        <div class="summary-row">
+                            <span>Subtotal:</span>
+                            <span id="subtotal">$397.96</span>
+                        </div>
+
+                        <div class="summary-row">
+                            <span>Shipping:</span>
+                            <span>Free</span>
+                        </div>
+
+                        <div class="summary-row">
+                            <span>Tax:</span>
+                            <span id="tax">$31.84</span>
+                        </div>
+
+                        <div class="summary-row">
+                            <span><strong>Total:</strong></span>
+                            <span id="total"><strong>$429.80</strong></span>
+                        </div>
+                        <a href="{{ url_for ('checkout') }}"> <button class="checkout-btn" onclick="proceedToCheckout()">
+                            Proceed to Checkout
+                        </button></a>
+
+
+                        <a href="{{ url_for ('index') }}" class="continue-shopping">
+                            Continue Shopping
+                        </a>
+
+                        <div class="text-center mt-4">
+                            <small class="text-muted">
+                                <i class="fas fa-lock me-2"></i>
+                                Secure checkout guaranteed
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Product data
+        const products = {
+            1: { name: 'Rose Essence', price: 89.99 },
+            2: { name: 'Vanilla Dreams', price: 105.99 },
+            3: { name: 'Ocean Breeze', price: 95.99 }
+        };
+
+        // Increase quantity
+        function increaseQuantity(id) {
+            const qtyInput = document.getElementById(`qty-${id}`);
+            let qty = parseInt(qtyInput.value);
+            if (qty < 10) {
+                qty++;
+                qtyInput.value = qty;
+                updateItemTotal(id, qty);
+                updateCartSummary();
+            }
+        }
+
+        // Decrease quantity
+        function decreaseQuantity(id) {
+            const qtyInput = document.getElementById(`qty-${id}`);
+            let qty = parseInt(qtyInput.value);
+            if (qty > 1) {
+                qty--;
+                qtyInput.value = qty;
+                updateItemTotal(id, qty);
+                updateCartSummary();
+            }
+        }
+
+        // Update item total
+        function updateItemTotal(id, qty) {
+            const price = products[id].price;
+            const total = (price * qty).toFixed(2);
+            document.getElementById(`total-${id}`).textContent = `$${total}`;
+        }
+
+        // Remove item
+        function removeItem(id) {
+            const item = document.querySelector(`.cart-item:nth-child(${id + 1})`);
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(-100%)';
+            setTimeout(() => {
+                item.remove();
+                delete products[id];
+                updateCartSummary();
+                checkEmptyCart();
+            }, 300);
+        }
+
+        // Update cart summary
+        function updateCartSummary() {
+            let subtotal = 0;
+            Object.keys(products).forEach(id => {
+                const qtyElement = document.getElementById(`qty-${id}`);
+                if (qtyElement) {
+                    const qty = parseInt(qtyElement.value);
+                    const price = products[id].price;
+                    subtotal += price * qty;
+                }
+            });
+
+            const tax = subtotal * 0.08; // 8% tax
+            const total = subtotal + tax;
+
+            document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('tax').textContent = `$${tax.toFixed(2)}`;
+            document.getElementById('total').innerHTML = `<strong>$${total.toFixed(2)}</strong>`;
+        }
+
+        // Check if cart is empty
+        function checkEmptyCart() {
+            if (Object.keys(products).length === 0) {
+                const cartSection = document.querySelector('.cart-section .container');
+                cartSection.innerHTML = `
+                    <div class="empty-cart">
+                        <div class="empty-cart-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <h3>Your cart is empty</h3>
+                        <p class="text-muted mb-4">Looks like you haven't added any items to your cart yet.</p>
+                        <a href="#" class="checkout-btn" style="display: inline-block; width: auto; padding: 15px 40px;">
+                            Continue Shopping
+                        </a>
+                    </div>
+                `;
+            }
+        }
+
+        // Proceed to checkout
+        function proceedToCheckout() {
+            window.location.href = '#checkout'; // Replace with actual checkout URL
+        }
+
+        // Handle quantity input changes
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.quantity-input').forEach(input => {
+                input.addEventListener('change', function() {
+                    const id = this.id.split('-')[1];
+                    const qty = parseInt(this.value);
+                    if (qty >= 1 && qty <= 10) {
+                        updateItemTotal(id, qty);
+                        updateCartSummary();
+                    } else {
+                        this.value = 1;
+                        updateItemTotal(id, 1);
+                        updateCartSummary();
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+{% endblock %}
+
+
+
+
+

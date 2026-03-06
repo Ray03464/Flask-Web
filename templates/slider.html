@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Side Perfume Auto Slider</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="hero-container">
+        <!-- Hero Section (Your main content area) -->
+        <div class="hero-section">
+            <h1 class="hero-title">Discover Your Signature Scent</h1>
+            <p class="hero-subtitle">Luxury perfumes crafted with elegance and passion. Find the perfect fragrance that tells your unique story.</p>
+            <button class="hero-button">Shop Now</button>
+        </div>
+
+        <!-- Perfume Slider (Side component) -->
+        <div class="perfume-slider">
+            <div class="slider-wrapper">
+                <div class="slide slide-1">
+                    <h3 class="slide-title">LIBRE EAU DE PARFUM</h3>
+                    <div class="product-image">
+                        <!-- Replace src with your actual perfume image -->
+                        <img src="/static/slider/slide1.jpg" alt="">
+                        <!-- If no image, show placeholder: -->
+                        <!-- <div class="product-placeholder">Your Image Here</div> -->
+                    </div>
+                    <p class="slide-description">Elegant amber essence with notes of vanilla and sandalwood.</p>
+                </div>
+
+                <div class="slide slide-2">
+                    <h3 class="slide-title">MISS DIOR EAU DE PARFUM</h3>
+                    <div class="product-image">
+                        <!-- Replace src with your actual perfume image -->
+                        <img src="/static/slider/slider2.jpg" alt="">
+                    </div>
+                    <p class="slide-description">Floral symphony with rose petals and jasmine blooms.</p>
+                </div>
+
+                <div class="slide slide-3">
+                    <h3 class="slide-title">TAMBURINS CHAMO PERFUME</h3>
+                    <div class="product-image">
+                        <!-- Replace src with your actual perfume image -->
+                        <img src="/static/slider/slider3.jpg" alt="Perfume Bottle 3">
+                    </div>
+                    <p class="slide-description">Fresh oceanic breeze with citrus and aquatic minerals.</p>
+                </div>
+            </div>
+
+            <div class="slide-indicators">
+                <div class="indicator active"></div>
+                <div class="indicator"></div>
+                <div class="indicator"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Update active indicator based on current slide
+        const indicators = document.querySelectorAll('.indicator');
+        const slider = document.querySelector('.slider-wrapper');
+
+        function updateIndicators() {
+            const currentTime = Date.now();
+            const cycleTime = 12000; // 12 seconds total cycle
+            const slideTime = 4000; // 4 seconds per slide
+
+            const position = (currentTime % cycleTime) / slideTime;
+            const activeSlide = Math.floor(position) % 3;
+
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === activeSlide);
+            });
+        }
+
+        // Update indicators every 100ms for smooth transitions
+        setInterval(updateIndicators, 100);
+
+        // Pause animation on hover
+        const sliderContainer = document.querySelector('.perfume-slider');
+        sliderContainer.addEventListener('mouseenter', () => {
+            slider.style.animationPlayState = 'paused';
+            document.querySelectorAll('.product-image').forEach(img => {
+                img.style.animationPlayState = 'paused';
+            });
+        });
+
+        sliderContainer.addEventListener('mouseleave', () => {
+            slider.style.animationPlayState = 'running';
+            document.querySelectorAll('.product-image').forEach(img => {
+                img.style.animationPlayState = 'running';
+            });
+        });
+    </script>
+</body>

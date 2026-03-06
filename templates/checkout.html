@@ -1,0 +1,221 @@
+{% extends 'master.html' %}
+{% block content %}
+    <link rel="stylesheet" href="/static/style.css">
+    <body>
+    <!-- Checkout Content -->
+    <div class="checkout-container">
+        <div class="page-header">
+            <h1>Checkout</h1>
+            <p>Complete your order to discover your signature scent</p>
+        </div>
+
+        <div class="row">
+            <!-- Left Column - Forms -->
+            <div class="col-lg-7">
+                <!-- Billing Information -->
+                <div class="checkout-card">
+                    <h2 class="section-title">
+                        <i class="fas fa-user"></i>Billing Information
+                    </h2>
+                    <form id="checkoutForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">First Name <span class="required-star">*</span></label>
+                                <input type="text" class="form-control" placeholder="Enter first name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Last Name <span class="required-star">*</span></label>
+                                <input type="text" class="form-control" placeholder="Enter last name" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Email Address <span class="required-star">*</span></label>
+                            <input type="email" class="form-control" placeholder="your.email@example.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Phone Number <span class="required-star">*</span></label>
+                            <input type="tel" class="form-control" placeholder="+1 (555) 000-0000" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Street Address <span class="required-star">*</span></label>
+                            <input type="text" class="form-control" placeholder="123 Main Street" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">City <span class="required-star">*</span></label>
+                                <input type="text" class="form-control" placeholder="City" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">State / Province <span class="required-star">*</span></label>
+                                <input type="text" class="form-control" placeholder="State" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Postal Code <span class="required-star">*</span></label>
+                                <input type="text" class="form-control" placeholder="12345" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Country <span class="required-star">*</span></label>
+                                <select class="form-select" required>
+                                    <option value="">Select Country</option>
+                                    <option value="US">United States</option>
+                                    <option value="UK">United Kingdom</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="AU">Australia</option>
+                                    <option value="FR">France</option>
+                                    <option value="DE">Germany</option>
+                                    <option value="IT">Italy</option>
+                                    <option value="ES">Spain</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Order Notes (Optional)</label>
+                            <textarea class="form-control" rows="3" placeholder="Any special instructions for delivery..."></textarea>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="checkout-card">
+                    <h2 class="section-title">
+                        <i class="fas fa-credit-card"></i>Payment Method
+                    </h2>
+                    <div class="payment-method active">
+                        <input type="radio" name="payment" id="credit" checked>
+                        <label for="credit">
+                            <i class="fas fa-credit-card payment-icon"></i>
+                            <strong>Credit / Debit Card</strong>
+                            <div class="text-muted small">Pay securely with your card</div>
+                        </label>
+                    </div>
+                    <div class="payment-method">
+                        <input type="radio" name="payment" id="paypal">
+                        <label for="paypal">
+                            <i class="fab fa-paypal payment-icon"></i>
+                            <strong>PayPal</strong>
+                            <div class="text-muted small">Fast & secure payment</div>
+                        </label>
+                    </div>
+                    <div class="payment-method">
+                        <input type="radio" name="payment" id="cod">
+                        <label for="cod">
+                            <i class="fas fa-money-bill-wave payment-icon"></i>
+                            <strong>Cash on Delivery</strong>
+                            <div class="text-muted small">Pay when you receive</div>
+                        </label>
+                    </div>
+
+                    <div id="cardDetails" class="mt-4">
+                        <div class="mb-3">
+                            <label class="form-label">Card Number <span class="required-star">*</span></label>
+                            <input type="text" class="form-control" placeholder="1234 5678 9012 3456">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Expiry Date <span class="required-star">*</span></label>
+                                <input type="text" class="form-control" placeholder="MM/YY">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">CVV <span class="required-star">*</span></label>
+                                <input type="text" class="form-control" placeholder="123">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Order Summary -->
+            <div class="col-lg-5">
+                <div class="checkout-card sticky-top" style="top: 20px;">
+                    <h2 class="section-title">
+                        <i class="fas fa-shopping-bag"></i>Order Summary
+                    </h2>
+
+                    <div class="product-item">
+                        <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=200" alt="Perfume" class="product-img">
+                        <div class="product-details">
+                            <div class="product-name">Velvet Rose Essence</div>
+                            <div class="product-price">Qty: 1 × $89.00</div>
+                        </div>
+                        <div class="product-total">$89.00</div>
+                    </div>
+
+                    <div class="product-item">
+                        <img src="https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=200" alt="Perfume" class="product-img">
+                        <div class="product-details">
+                            <div class="product-name">Amber Sandalwood</div>
+                            <div class="product-price">Qty: 1 × $95.00</div>
+                        </div>
+                        <div class="product-total">$95.00</div>
+                    </div>
+
+                    <div class="mt-4">
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span>$184.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span>$12.00</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Tax (10%)</span>
+                            <span>$18.40</span>
+                        </div>
+                        <div class="summary-row summary-total">
+                            <span>Total</span>
+                            <span>$214.40</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-checkout mt-4">
+                        <i class="fas fa-lock me-2"></i>Complete Order
+                    </button>
+
+                    <div class="secure-badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <strong>Secure Checkout</strong>
+                        <div class="small text-muted mt-1">Your payment information is protected</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Payment method selection
+        document.querySelectorAll('.payment-method').forEach(method => {
+            method.addEventListener('click', function() {
+                document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('active'));
+                this.classList.add('active');
+                this.querySelector('input[type="radio"]').checked = true;
+
+                // Show/hide card details
+                const cardDetails = document.getElementById('cardDetails');
+                if (this.querySelector('#credit').checked) {
+                    cardDetails.style.display = 'block';
+                } else {
+                    cardDetails.style.display = 'none';
+                }
+            });
+        });
+
+        // Form submission
+        document.querySelector('.btn-checkout').addEventListener('click', function(e) {
+            e.preventDefault();
+            const form = document.getElementById('checkoutForm');
+            if (form.checkValidity()) {
+                alert('✨ Order placed successfully! Thank you for choosing EnchantedElegant. Your signature scent is on its way!');
+            } else {
+                form.reportValidity();
+            }
+        });
+    </script>
+</body>
+
+{% endblock %}
+
+
